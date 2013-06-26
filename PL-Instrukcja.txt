@@ -1,0 +1,44 @@
+﻿#############################################
+
+/**
+ * This file is part of Top Stats plugin for MyBB.
+ * Copyright (C) 2010-2013 baszaR & Lukasz Tkacz <lukasamd@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */ 
+
+#############################################
+
+
+
+
+
+INSTALACJA:
+
+
+1. Umieść wszystkie pliki z katalogu root na serwerze w katalogu z forum MyBB
+
+2. Wejdź do Panelu Administracyjnego -> Pluginy i zainstaluj "Top stats"
+
+3. Wejdź do Panelu Administracyjnego -> Ustawienia -> "Top stats" i skonfiguruj plugin
+
+4. Dodaj do panelu bocznego (np. w szablonie index) wymagane zmienne dla poszczególnych modułów:
+
+{$topstats_last_threads}
+{$topstats_mostviews_threads}
+{$topstats_posters}
+{$topstats_reputation}
+{$topstats_online}
+{$topstats_newest_users}
