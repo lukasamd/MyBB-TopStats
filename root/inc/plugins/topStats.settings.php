@@ -39,7 +39,7 @@ class topStatsInstaller
             'gid' => 'NULL',
             'name' => 'topStats',
             'title' => $db->escape_string($lang->topStats),
-            'description' => $db->escape_string($lang->topStats_desc),
+            'description' => $db->escape_string($lang->topStats_Desc),
             'disporder' => $max_disporder + 1,
             'isdefault' => '0'
         );
@@ -49,8 +49,8 @@ class topStatsInstaller
 		$setting = array(
             'sid' => 'NULL',
             'name' => 'topStats_Status_All',
-            'title' => $db->escape_string($lang->topStats_onoff),
-            'description' => $db->escape_string($lang->topStats_onoff_desc),
+            'title' => $db->escape_string($lang->topStats_Status_All),
+            'description' => $db->escape_string($lang->topStats_Status_AllDesc),
             'optionscode' => 'onoff',
             'value' => '1',
             'disporder' => $disporder++,

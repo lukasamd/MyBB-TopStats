@@ -97,7 +97,7 @@ class topStatsActivator
             "title" => 'topStats_Posters',
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
-            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_top} {{$tpl[\'limit\']}} {$lang->topStats_Posters}</strong></td></tr>
+            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {{$tpl[\'limit\']}} {$lang->topStats_Posters}</strong></td></tr>
             {$tpl[\'row\']}</table>
             '),
             "sid" => "-1",
@@ -126,7 +126,7 @@ class topStatsActivator
             "title" => 'topStats_Reputation',
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
-            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_top} {{$tpl[\'limit\']}} {$lang->topStats_Reputation}</strong></td></tr>
+            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {{$tpl[\'limit\']}} {$lang->topStats_Reputation}</strong></td></tr>
             {$tpl[\'row\']}</table>     
             '),
             "sid" => "-1",
@@ -154,7 +154,7 @@ class topStatsActivator
             "title" => 'topStats_Online',
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
-            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_top} {{$tpl[\'limit\']}} {$lang->topStats_online}</strong></td></tr>
+            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {{$tpl[\'limit\']}} {$lang->topStats_Online}</strong></td></tr>
             {$tpl[\'row\']}</table>      		
             '),
             "sid" => "-1",
@@ -168,7 +168,7 @@ class topStatsActivator
             "template" => $db->escape_string('
             <td class="trow1">
             <img src="{$tpl[\'avatar\']}" alt="" style="float: left;width: {$tpl[\'avatar_width\']}px;margin-right: 5px;"/>
-            {$tpl[\'profilelink\']}<br />{$lang->topStats_online_time}: {$tpl[\'time\']}  
+            {$tpl[\'profilelink\']}<br />{$lang->topStats_OnlineTime}: {$tpl[\'time\']}  
             </td></tr>       
             '),
             "sid" => "-1",

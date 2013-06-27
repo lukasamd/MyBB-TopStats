@@ -39,8 +39,8 @@ function topStats_info()
     global $lang;
     $lang->load("topStats");
 	return array(
-        'name' => $lang->topStats_name,
-        'description' => $lang->topStats_name_desc,
+        'name'          => $lang->topStats_Name,
+        'description'   => $lang->topStats_NameDesc,
 		'website'		=> 'http://mybboard.pl/',
 		'author'		=> 'baszaR & LukasAMD & Supryk',
 		'authorsite'	=> 'http://mybboard.pl/',

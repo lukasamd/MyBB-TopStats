@@ -1,3 +1,8 @@
+Version 2.0
+    * Rewrite code
+    * Add polish lang        
+
+
 Version 1.3.0
     * Public release
     * Add GPL license    
