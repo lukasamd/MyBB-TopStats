@@ -30,15 +30,15 @@ INSTALACJA:
 
 1. Umieść wszystkie pliki z katalogu root na serwerze w katalogu z forum MyBB
 
-2. Wejdź do Panelu Administracyjnego -> Pluginy i zainstaluj "Top stats"
+2. Wejdź do Panelu Administracyjnego -> Pluginy i zainstaluj "Statystyki TOP"
 
-3. Wejdź do Panelu Administracyjnego -> Ustawienia -> "Top stats" i skonfiguruj plugin
+3. Wejdź do Panelu Administracyjnego -> Ustawienia -> "Statystyki TOP" i skonfiguruj plugin
 
 4. Dodaj do panelu bocznego (w szablonie index) wymagane zmienne dla poszczególnych modułów:
 
-{$topStats['LastThreads'} - ostatnie tematy
-{$topStats['MostViews'} - najczęściej wyświetlane tematy
-{$topStats['Posters'} - użytkownicy z największą ilością tematów
-{$topStats['Reputation'} - użytkownicy z największą reputacją
-{$topStats['Timeonline'} - użytkownicy z najdłuższym czasem online
-{$topStats['NewestUsers'} - najnowsi użytkownicy
+{$topStats['LastThreads']} - ostatnie tematy
+{$topStats['MostViews']} - najczęściej wyświetlane tematy
+{$topStats['Posters']} - użytkownicy z największą ilością tematów
+{$topStats['Reputation']} - użytkownicy z największą reputacją
+{$topStats['Timeonline']} - użytkownicy z najdłuższym czasem online
+{$topStats['NewestUsers']} - najnowsi użytkownicy

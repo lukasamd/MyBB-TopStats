@@ -30,8 +30,8 @@ $l['topStats_NameDesc'] = "Dodaje statystyki TOP, w panelu bocznym. Ilość wyś
 $l['topStats'] = "Statystyki Top";
 $l['topStats_Desc'] = "Ustawienia pluginu Statystyki TOP.";
 
-$l['topStats_Status_All'] = "Wyłącz Statystyki TOP.";
-$l['topStats_Status_AllDesc'] = "Ta opcja wyłączy wszystkie statystyki z panelu bocznego,";
+$l['topStats_Status_All'] = "Włącz/wyłącz wszystkie statystyki.";
+$l['topStats_Status_AllDesc'] = "Ta opcja pozwala na globalne wyłączenie wszystkich statystyk.";
 
 $l['topStats_Status_LastThreads'] = "Najnowsze tematy";
 $l['topStats_Status_LastThreadsDesc'] = "Wyświetlanie widgetu z najnowszymi tematami.";
@@ -53,10 +53,10 @@ $l['topStats_Status_ReputationDesc'] = "Wyświetlanie widgetu z listą użytkown
 $l['topStats_Limit_Reputation'] = "Limit użytkowników (reputacja)";
 $l['topStats_Limit_ReputationDesc'] = "";
 
-$l['topStats_Status_Online'] = "Użytkownicy będący najdłużej online";
-$l['topStats_Status_OnlineDesc'] = "Wyświetlanie widgetu z listą użytkowników będących najdłużej online.";
-$l['topStats_Limit_Online'] = "Limit użytkowników (online)";
-$l['topStats_Limit_OnlineDesc'] = "";
+$l['topStats_Status_Timeonline'] = "Użytkownicy będący najdłużej online";
+$l['topStats_Status_TimeonlineDesc'] = "Wyświetlanie widgetu z listą użytkowników będących najdłużej online.";
+$l['topStats_Limit_Timeonline'] = "Limit użytkowników (online)";
+$l['topStats_Limit_TimeonlineDesc'] = "";
 
 $l['topStats_Status_NewestUsers'] = "Najnowsi użytkownicy";
 $l['topStats_Status_NewestUsersDesc'] = "Wyświetlanie widgetu z listą najnowszych użytkowników.";

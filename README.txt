@@ -1,0 +1,1 @@
+This plugin add a "widgets" with TOP statictics like: last threads, top posters etc.
