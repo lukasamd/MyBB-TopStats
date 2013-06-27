@@ -157,9 +157,9 @@ class topStatsInstaller
         
 		$setting = array(
             'sid' => 'NULL',
-            'name' => 'topStats_Status_Online',
-            'title' => $db->escape_string($lang->topStats_Status_Online),
-            'description' =>  $db->escape_string($lang->topStats_Status_OnlineDesc),
+            'name' => 'topStats_Status_Timeonline',
+            'title' => $db->escape_string($lang->topStats_Status_Timeonline),
+            'description' =>  $db->escape_string($lang->topStats_Status_TimeonlineDesc),
             'optionscode' => 'onoff',
             'value' => '1',
             'disporder' => $disporder++,
@@ -169,9 +169,9 @@ class topStatsInstaller
 		
         $setting = array(
             'sid' => 'NULL',
-            'name' => 'topStats_Limit_Online',
-            'title' => $db->escape_string($lang->topStats_Limit_Online),
-            'description' =>  $db->escape_string($lang->topStats_Limit_OnlineDesc),
+            'name' => 'topStats_Limit_Timeonline',
+            'title' => $db->escape_string($lang->topStats_Limit_Timeonline),
+            'description' =>  $db->escape_string($lang->topStats_Limit_TimeonlineDesc),
             'optionscode' => 'text',
             'value' => '5',
             'disporder' => $disporder++,
@@ -207,7 +207,7 @@ class topStatsInstaller
             'sid' => 'NULL',
             'name' => 'topStats_Status_Avatar',
             'title' =>  $db->escape_string($lang->topStats_Status_Avatar),
-            'description' =>   $db->escape_string($lang->topStats_Status_Avatar_desc),
+            'description' =>   $db->escape_string($lang->topStats_Status_AvatarDesc),
             'optionscode' => 'onoff',
             'value' => '1',
             'disporder' => $disporder++,
@@ -219,7 +219,7 @@ class topStatsInstaller
             'sid' => 'NULL',
             'name' => 'topStats_AvatarWidth',
             'title' =>  $db->escape_string($lang->topStats_AvatarWidth),
-            'description' =>  $db->escape_string($lang->topStats_AvatarWidth_desc),
+            'description' =>  $db->escape_string($lang->topStats_AvatarWidthDesc),
             'optionscode' => 'text',
             'value' => '32',
             'disporder' => $disporder++,

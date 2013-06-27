@@ -1,8 +1,8 @@
-﻿#############################################
+#############################################
 
 /**
  * This file is part of Top Stats plugin for MyBB.
- * Copyright (C) 2010-2013 baszaR & Lukasz Tkacz <lukasamd@gmail.com>
+ * Copyright (C) 2010-2013 baszaR & LukasAMD & Supryk
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -34,11 +34,11 @@ INSTALACJA:
 
 3. Wejdź do Panelu Administracyjnego -> Ustawienia -> "Top stats" i skonfiguruj plugin
 
-4. Dodaj do panelu bocznego (np. w szablonie index) wymagane zmienne dla poszczególnych modułów:
+4. Dodaj do panelu bocznego (w szablonie index) wymagane zmienne dla poszczególnych modułów:
 
-{$topstats_last_threads}
-{$topstats_mostviews_threads}
-{$topstats_posters}
-{$topstats_reputation}
-{$topstats_online}
-{$topstats_newest_users}
+{$topStats['LastThreads'} - ostatnie tematy
+{$topStats['MostViews'} - najczęściej wyświetlane tematy
+{$topStats['Posters'} - użytkownicy z największą ilością tematów
+{$topStats['Reputation'} - użytkownicy z największą reputacją
+{$topStats['Timeonline'} - użytkownicy z najdłuższym czasem online
+{$topStats['NewestUsers'} - najnowsi użytkownicy

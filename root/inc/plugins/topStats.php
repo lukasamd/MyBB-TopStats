@@ -28,7 +28,7 @@ if (!defined("IN_MYBB")) exit;
  * Create plugin object
  * 
  */
-$plugins->objects['unreadPosts'] = new unreadPosts();
+$plugins->objects['topStats'] = new topStats();
 
 /**
  * Standard MyBB info function
@@ -66,7 +66,7 @@ function topStats_is_installed()
 {
 
     global $mybb;
-    return (isset($mybb->settings['topStats_users']));
+    return (isset($mybb->settings['topStats_Status_LastThreads']));
 }
 
 function topStats_uninstall()
@@ -103,11 +103,15 @@ function topStats_deactivate()
 class topStats
 {
     /**
-     * Template data
-     *   
-     */ 
-    public $template = array(); 
+     * Constructor - add plugin hooks
+     *      
+     */
+    public function __construct()
+    {
+        global $plugins;
 
+        $plugins->hooks["global_start"][10]["topStats_addHooks"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->addHooks();'));
+    }
 
     /**
      * Add all needed hooks
@@ -115,17 +119,16 @@ class topStats
      */
     public function addHooks()
     {
-        global $mybb, $plugins, $topStats;
+        global $lang, $mybb, $plugins, $templatelist, $topStats;
 
-        $this->template = array(
+        $topStats = array(
             'LastThreads'   => '',
             'MostViews'     => '',
             'Posters'       => '',
             'Reputation'    => '',
             'Timeonline'    => '',
-            'NewsetUsers'   => '',
+            'NewestUsers'   => '',
         );
-        $topStats =& $this->template;
 
     	if (!$this->getConfig('Status_All'))
         {
@@ -133,12 +136,36 @@ class topStats
         }
 
         $lang->load("topStats");
-        $plugins->hooks["index_start"][10]["topStats_LastThreads"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_LastThreads();'));
-        $plugins->hooks["index_start"][10]["topStats_MostViews"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_MostViews();'));
-        $plugins->hooks["index_start"][10]["topStats_Posters"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_Posters();'));
-        $plugins->hooks["index_start"][10]["topStats_Reputation"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_Reputation();'));
-        $plugins->hooks["index_start"][10]["topStats_Timeonline"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_Timeonline();'));
-        $plugins->hooks["index_start"][10]["topStats_NewsetUsers"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_NewsetUsers();'));
+    	if ($this->getConfig('Status_LastThreads'))
+        {
+            $plugins->hooks["index_start"][10]["topStats_LastThreads"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_LastThreads();'));
+            $templatelist .= ',topStats_LastThreads,topStats_LastThreadsRow';    
+        }
+    	if ($this->getConfig('Status_MostViews'))
+        {
+            $plugins->hooks["index_start"][10]["topStats_MostViews"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_MostViews();'));
+            $templatelist .= ',topStats_MostViews,topStats_MostViewsRow';    
+        }
+    	if ($this->getConfig('Status_Posters'))
+        {
+            $plugins->hooks["index_start"][10]["topStats_Posters"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_Posters();'));
+            $templatelist .= ',topStats_Posters,topStats_PostersRow';    
+        }
+    	if ($this->getConfig('Status_Reputation'))
+        {
+            $plugins->hooks["index_start"][10]["topStats_Reputation"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_Reputation();'));
+            $templatelist .= ',topStats_Reputation,topStats_ReputationRow';    
+        }
+    	if ($this->getConfig('Status_Timeonline'))
+        {
+            $plugins->hooks["index_start"][10]["topStats_Timeonline"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_Timeonline();'));
+            $templatelist .= ',topStats_Timeonline,topStats_TimeonlineRow';    
+        }
+    	if ($this->getConfig('Status_NewestUsers'))
+        {
+            $plugins->hooks["index_start"][10]["topStats_NewestUsers"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'topStats\']->widget_NewestUsers();'));
+            $templatelist .= ',topStats_NewestUsers,topStats_NewestUsersRow';    
+        }   
     }
     
     /**
@@ -147,22 +174,17 @@ class topStats
      */ 
     public function widget_LastThreads()
     {   
-        global $db, $lang, $mybb, $templates;
-        
-    	if (!$this->getConfig('Status_LastThreads'))
-        {
-            return;
-        }
-    
-        $tpl['avatar_width'] = (int) $this->getConfig('avatar_width'];
-        $limit = (int) $this->getConfig('Limit_LastThreads');
+        global $db, $lang, $mybb, $templates, $topStats;
+
+        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
+        $tpl['limit'] = (int) $this->getConfig('Limit_LastThreads');
         $tpl['row'] = '';
     
         $sql = "SELECT t.*, u.usergroup, u.displaygroup, u.avatar 
                 FROM ".TABLE_PREFIX."threads AS t
                 INNER JOIN ".TABLE_PREFIX."users AS u USING (uid) 
                 WHERE " . $this->buildThreadsWhere() ."
-                ORDER BY tid DESC LIMIT {$limit}";
+                ORDER BY tid DESC LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
         while ($row = $db->fetch_array($result))
         {
@@ -171,11 +193,10 @@ class topStats
     		$tpl['profilelink'] = build_profile_link($tpl['username'], $row['uid']);
             $tpl['date'] = my_date($mybb->settings['dateformat'] . " " . $mybb->settings['timeformat'], $row['dateline']);
     		$tpl['subjectlink'] = get_thread_link($row['tid']);
-            $tpl['avatar'] = (!$this->getConfig('avatar')) ? '' : $row['avatar']; 
-            $tpl['row'] = eval($templates->get("topstats_LastThreadsRow"));                  .
+            $tpl['avatar'] = (!$this->getConfig('Status_Avatar')) ? '' : $row['avatar']; 
+            eval("\$tpl['row'] .= \"" . $templates->get("topStats_LastThreadsRow") . "\";");
         }
-    
-        $this->template['LastThreads'] = eval($templates->get("topstats_LastThreads"));
+        eval("\$topStats['LastThreads'] = \"" . $templates->get("topStats_LastThreads") . "\";");
     }
     
     /**
@@ -184,29 +205,17 @@ class topStats
      */ 
     public function widget_MostViews()
     {
-        global $db, $lang, $mybb, $templates;
-          
-    	if (!$this->getConfig('Status_MostViews'))
-        {
-            return;
-        }
-        
-        global $db, $lang, $mybb, $templates;
-        
-    	if (!$this->getConfig('Status_LastThreads'))
-        {
-            return;
-        }
-    
-        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth'];
-        $limit = (int) $this->getConfig('Limit_MostViews');
+        global $db, $lang, $mybb, $templates, $topStats;
+
+        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
+        $tpl['limit'] = (int) $this->getConfig('Limit_MostViews');
         $tpl['row'] = '';
     
         $sql = "SELECT t.*, u.usergroup, u.displaygroup, u.avatar 
                 FROM ".TABLE_PREFIX."threads AS t
                 INNER JOIN ".TABLE_PREFIX."users AS u USING (uid) 
                 WHERE " . $this->buildThreadsWhere() ."
-                ORDER BY views DESC LIMIT {$limit}";
+                ORDER BY views DESC LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
         while ($row = $db->fetch_array($result))
         {
@@ -215,44 +224,38 @@ class topStats
     		$tpl['profilelink'] = build_profile_link($tpl['username'], $row['uid']);
             $tpl['date'] = my_date($mybb->settings['dateformat'] . " " . $mybb->settings['timeformat'], $row['dateline']);
     		$tpl['subjectlink'] = get_thread_link($row['tid']);
-            $tpl['avatar'] = (!$this->getConfig('avatar')) ? '' : $row['avatar']; 
-            $tpl['row'] = eval($templates->get("topstats_MostViewsRow"));                  .
+            $tpl['avatar'] = (!$this->getConfig('Status_Avatar')) ? '' : $row['avatar']; 
+            eval("\$tpl['row'] .= \"" . $templates->get("topStats_MostViewsRow") . "\";");
         }
-    
-        $this->template['MostViews'] = eval($templates->get("topstats_MostViews"));
+        eval("\$topStats['MostViews'] = \"" . $templates->get("topStats_MostViews") . "\";");
     }
     
     /**
      * Widget with most posters list
      *   
      */ 
-    public function widget_Poster()
+    public function widget_Posters()
     {
-        global $db, $lang, $mybb, $templates;
+        global $db, $lang, $mybb, $templates, $topStats;
 
-    	if (!$this->getConfig('Status_Posters'))
-        {
-            return;
-        }
-    
-        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth'];
-        $limit = (int) $this->getConfig('Limit_Posters');
+        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
+        $tpl['limit'] = (int) $this->getConfig('Limit_Posters');
         $tpl['row'] = '';
     
         $sql = "SELECT username, usergroup, displaygroup, postnum, uid, avatar 
                 FROM ".TABLE_PREFIX."users 
                 ORDER BY postnum DESC 
-                LIMIT {$limit}";
+                LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
         while ($row = $db->fetch_array($result))
         {
             $tpl['username'] = format_name($row['username'], $row['usergroup'], $row['displaygroup']);
     		$tpl['profilelink'] = build_profile_link($tpl['username'], $row['uid']);
     		$tpl['postnum'] = $row['postnum'];
-            $tpl['avatar'] = (!$this->getConfig('avatar')) ? '' : $row['avatar']; 
-            $tpl['row'] = eval($templates->get("topstats_PostersRow"));                  .
+            $tpl['avatar'] = (!$this->getConfig('Status_Avatar')) ? '' : $row['avatar']; 
+            eval("\$tpl['row'] .= \"" . $templates->get("topStats_PostersRow") . "\";");
         }
-        $this->template['Posters'] = eval($templates->get("topstats_Posters"));
+        eval("\$topStats['Posters'] = \"" . $templates->get("topStats_Posters") . "\";");
     }
     /**
      * Widget with reputation list
@@ -260,31 +263,26 @@ class topStats
      */ 
     public function widget_Reputation()
     {
-        global $db, $lang, $mybb, $templates;
-        
-    	if (!$this->getConfig('Status_Reputation'))
-        {
-            return;
-        }
-	
-        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth'];
-        $limit = (int) $this->getConfig('Limit_Reputation');
+        global $db, $lang, $mybb, $templates, $topStats;
+
+        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
+        $tpl['limit'] = (int) $this->getConfig('Limit_Reputation');
         $tpl['row'] = '';
     
-        $sql = "SELECT username, usergroup, displaygroup, postnum, uid, avatar 
+        $sql = "SELECT username, usergroup, displaygroup, reputation, uid, avatar 
                 FROM ".TABLE_PREFIX."users 
                 ORDER BY reputation DESC 
-                LIMIT {$limit}";
+                LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
         while ($row = $db->fetch_array($result))        
         {
             $tpl['username'] = format_name($row['username'], $row['usergroup'], $row['displaygroup']);
     		$tpl['profilelink'] = build_profile_link($tpl['username'], $row['uid']);
     		$tpl['reputation'] = $row['reputation'];
-            $tpl['avatar'] = (!$this->getConfig('avatar')) ? '' : $row['avatar']; 
-            $tpl['row'] = eval($templates->get("topstats_ReputationRow"));      
+            $tpl['avatar'] = (!$this->getConfig('Status_Avatar')) ? '' : $row['avatar'];     
+            eval("\$tpl['row'] .= \"" . $templates->get("topStats_ReputationRow") . "\";");
         }
-        $this->template['Reputation'] = eval($templates->get("topstats_Reputation"));
+        eval("\$topStats['Reputation'] = \"" . $templates->get("topStats_Reputation") . "\";");
     }
     
     /**
@@ -293,31 +291,26 @@ class topStats
      */ 
     public function widget_NewestUsers()
     {
-        global $db, $lang, $mybb, $templates;
-        
-    	if (!$this->getConfig('NewsetUsers'))
-        {
-            return;
-        }
-        
-        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth'];
-        $limit = (int) $this->getConfig('Limit_NewestUsers');
+        global $db, $lang, $mybb, $templates, $topStats;
+
+        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
+        $tpl['limit'] = (int) $this->getConfig('Limit_NewestUsers');
         $tpl['row'] = '';
     
-        $sql = "SELECT username, usergroup, displaygroup, postnum, uid, avatar 
+        $sql = "SELECT username, usergroup, displaygroup, regdate, postnum, uid, avatar 
                 FROM ".TABLE_PREFIX."users 
-                ORDER BY NewestUsers DESC 
-                LIMIT {$limit}";
+                ORDER BY regdate DESC 
+                LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
         while ($row = $db->fetch_array($result))        
         {
             $tpl['username'] = format_name($row['username'], $row['usergroup'], $row['displaygroup']);
     		$tpl['profilelink'] = build_profile_link($tpl['username'], $row['uid']);
-    		$tpl['date'] = my_date($mybb->settings['dateformat'] . " " . $mybb->settings['timeformat'], $row['dateline'], NULL, 1);
-            $tpl['avatar'] = (!$this->getConfig('avatar')) ? '' : $row['avatar']; 
-            $tpl['row'] = eval($templates->get("topstats_NewestUsersRow"));      
+    		$tpl['date'] = my_date($mybb->settings['dateformat'] . " " . $mybb->settings['timeformat'], $row['regdate'], NULL, 1);
+            $tpl['avatar'] = (!$this->getConfig('Status_Avatar')) ? '' : $row['avatar']; 
+            eval("\$tpl['row'] .= \"" . $templates->get("topStats_NewestUsersRow") . "\";");
         }
-        $this->template['NewestUsers'] = eval($templates->get("topstats_NewestUsers"));
+        eval("\$topStats['NewestUsers'] = \"" . $templates->get("topStats_NewestUsers") . "\";");
     }
 
     /**
@@ -326,29 +319,26 @@ class topStats
      */ 
     public function widget_Timeonline()
     {
-    	if (!$this->getConfig('Status_Timeonline'))
-        {
-            return;
-        }
-    
-        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth'];
-        $limit = (int) $this->getConfig('Limit_Timeonline');
+        global $db, $lang, $mybb, $templates, $topStats;
+
+        $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
+        $tpl['limit'] = (int) $this->getConfig('Limit_Timeonline');
         $tpl['row'] = '';
-    
-        $sql = "SELECT username, usergroup, displaygroup, postnum, uid, avatar 
+
+        $sql = "SELECT username, usergroup, displaygroup, timeonline, uid, avatar 
                 FROM ".TABLE_PREFIX."users 
                 ORDER BY timeonline DESC 
-                LIMIT {$limit}";
+                LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
         while ($row = $db->fetch_array($result))        
         {
             $tpl['username'] = format_name($row['username'], $row['usergroup'], $row['displaygroup']);
     		$tpl['profilelink'] = build_profile_link($tpl['username'], $row['uid']);
-    		$tpl['time'] = ($timeonline['time'] > 0) ? $this->getFriendlyTime($timeonline['time']) : $lang->none_registered;;
-            $tpl['avatar'] = (!$this->getConfig('avatar')) ? '' : $row['avatar']; 
-            $tpl['row'] = eval($templates->get("topstats_TimeonlineRow"));      
+    		$tpl['time'] = ($row['timeonline'] > 0) ? $this->getFriendlyTime($row['timeonline']) : $lang->none_registered;;
+            $tpl['avatar'] = (!$this->getConfig('Status_Avatar')) ? '' : $row['avatar']; 
+            eval("\$tpl['row'] .= \"" . $templates->get("topStats_TimeonlineRow") . "\";");
         }
-        $this->template['Timeonline'] = eval($templates->get("topstats_Timeonline"));
+        eval("\$topStats['Timeonline'] = \"" . $templates->get("topStats_Timeonline") . "\";");
     }
     
     /**
@@ -472,7 +462,7 @@ class topStats
     {
         global $mybb;
     
-        return $mybb->settings["topStats{$name}"];
+        return $mybb->settings["topStats_{$name}"];
     }
 
 }

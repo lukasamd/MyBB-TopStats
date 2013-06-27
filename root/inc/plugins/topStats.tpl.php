@@ -97,7 +97,7 @@ class topStatsActivator
             "title" => 'topStats_Posters',
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
-            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {{$tpl[\'limit\']}} {$lang->topStats_Posters}</strong></td></tr>
+            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {$tpl[\'limit\']} {$lang->topStats_Posters}</strong></td></tr>
             {$tpl[\'row\']}</table>
             '),
             "sid" => "-1",
@@ -126,7 +126,7 @@ class topStatsActivator
             "title" => 'topStats_Reputation',
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
-            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {{$tpl[\'limit\']}} {$lang->topStats_Reputation}</strong></td></tr>
+            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {$tpl[\'limit\']} {$lang->topStats_Reputation}</strong></td></tr>
             {$tpl[\'row\']}</table>     
             '),
             "sid" => "-1",
@@ -151,10 +151,10 @@ class topStatsActivator
 		
 		self::$tpl[] = array(
             "tid" => NULL,
-            "title" => 'topStats_Online',
+            "title" => 'topStats_Timeonline',
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
-            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {{$tpl[\'limit\']}} {$lang->topStats_Online}</strong></td></tr>
+            <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {$tpl[\'limit\']} {$lang->topStats_Online}</strong></td></tr>
             {$tpl[\'row\']}</table>      		
             '),
             "sid" => "-1",
@@ -164,7 +164,7 @@ class topStatsActivator
 		
         self::$tpl[] = array(
             "tid" => NULL,
-            "title" => 'topStats_OnlineRow',
+            "title" => 'topStats_TimeonlineRow',
             "template" => $db->escape_string('
             <td class="trow1">
             <img src="{$tpl[\'avatar\']}" alt="" style="float: left;width: {$tpl[\'avatar_width\']}px;margin-right: 5px;"/>
@@ -181,7 +181,7 @@ class topStatsActivator
             "title" => 'topStats_NewestUsers',
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
-            <tr><td class="thead" colspan="1"><strong>{{$tpl[\'limit\']}} {$lang->topStats_NewestUsers}</strong></td></tr>
+            <tr><td class="thead" colspan="1"><strong>{$tpl[\'limit\']} {$lang->topStats_NewestUsers}</strong></td></tr>
             {$tpl[\'row\']}</table> 
             '),
             "sid" => "-1",
