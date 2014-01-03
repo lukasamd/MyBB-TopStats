@@ -44,7 +44,7 @@ function topStats_info()
 		'website'		=> 'http://mybboard.pl/',
 		'author'		=> 'baszaR & LukasAMD & Supryk',
 		'authorsite'	=> 'http://mybboard.pl/',
-		'version'		=> '2.0',
+		'version'		=> '2.1',
 		'guid'			=> '',
 		'compatibility' => '16*'
 	);
@@ -178,12 +178,17 @@ class topStats
 
         $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
         $tpl['limit'] = (int) $this->getConfig('Limit_LastThreads');
+		$tpl['ignore_forums'] = $this->getConfig('IgnoreForums_LastThreads');
+		if($tpl['ignore_forums'] == '')
+		{
+			$tpl['ignore_forums'] = '99999999';
+		}		
         $tpl['row'] = '';
     
         $sql = "SELECT t.*, u.usergroup, u.displaygroup, u.avatar 
                 FROM ".TABLE_PREFIX."threads AS t
                 INNER JOIN ".TABLE_PREFIX."users AS u USING (uid) 
-                WHERE " . $this->buildThreadsWhere() ."
+                WHERE " . $this->buildThreadsWhere() ." AND fid NOT IN(". $tpl['ignore_forums']. ")
                 ORDER BY tid DESC LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
         while ($row = $db->fetch_array($result))
@@ -209,12 +214,17 @@ class topStats
 
         $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
         $tpl['limit'] = (int) $this->getConfig('Limit_MostViews');
+		$tpl['ignore_forums'] = $this->getConfig('IgnoreForums_MostViews');
+		if($tpl['ignore_forums'] == '')
+		{
+			$tpl['ignore_forums'] = '99999999';
+		}		
         $tpl['row'] = '';
     
         $sql = "SELECT t.*, u.usergroup, u.displaygroup, u.avatar 
                 FROM ".TABLE_PREFIX."threads AS t
                 INNER JOIN ".TABLE_PREFIX."users AS u USING (uid) 
-                WHERE " . $this->buildThreadsWhere() ."
+                WHERE " . $this->buildThreadsWhere() ." AND fid NOT IN(". $tpl['ignore_forums']. ")
                 ORDER BY views DESC LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
         while ($row = $db->fetch_array($result))
@@ -240,10 +250,16 @@ class topStats
 
         $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
         $tpl['limit'] = (int) $this->getConfig('Limit_Posters');
+		$tpl['ignore_groups'] = $this->getConfig('IgnoreGroups_Posters');
+		if($tpl['ignore_groups'] == '')
+		{
+			$tpl['ignore_groups'] = '99999999';
+		}		
         $tpl['row'] = '';
     
         $sql = "SELECT username, usergroup, displaygroup, postnum, uid, avatar 
                 FROM ".TABLE_PREFIX."users 
+				WHERE usergroup NOT IN(". $tpl['ignore_groups'] . ")
                 ORDER BY postnum DESC 
                 LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
@@ -267,10 +283,16 @@ class topStats
 
         $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
         $tpl['limit'] = (int) $this->getConfig('Limit_Reputation');
+		$tpl['ignore_groups'] = $this->getConfig('IgnoreGroups_Reputation');
+		if($tpl['ignore_groups'] == '')
+		{
+			$tpl['ignore_groups'] = '99999999';
+		}
         $tpl['row'] = '';
     
         $sql = "SELECT username, usergroup, displaygroup, reputation, uid, avatar 
                 FROM ".TABLE_PREFIX."users 
+				WHERE usergroup NOT IN(". $tpl['ignore_groups'] . ")
                 ORDER BY reputation DESC 
                 LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
@@ -295,10 +317,16 @@ class topStats
 
         $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
         $tpl['limit'] = (int) $this->getConfig('Limit_NewestUsers');
+		$tpl['ignore_groups'] = $this->getConfig('IgnoreGroups_NewestUsers');
+		if($tpl['ignore_groups'] == '')
+		{
+			$tpl['ignore_groups'] = '99999999';
+		}
         $tpl['row'] = '';
     
         $sql = "SELECT username, usergroup, displaygroup, regdate, postnum, uid, avatar 
                 FROM ".TABLE_PREFIX."users 
+				WHERE usergroup NOT IN(". $tpl['ignore_groups'] . ")
                 ORDER BY regdate DESC 
                 LIMIT {$tpl['limit']}";
         $result = $db->query($sql);
@@ -323,10 +351,16 @@ class topStats
 
         $tpl['avatar_width'] = (int) $this->getConfig('AvatarWidth');
         $tpl['limit'] = (int) $this->getConfig('Limit_Timeonline');
+		$tpl['ignore_groups'] = $this->getConfig('IgnoreGroups_Timeonline');
+		if($tpl['ignore_groups'] == '')
+		{
+			$tpl['ignore_groups'] = '99999999';
+		}
         $tpl['row'] = '';
 
         $sql = "SELECT username, usergroup, displaygroup, timeonline, uid, avatar 
                 FROM ".TABLE_PREFIX."users 
+				WHERE usergroup NOT IN(". $tpl['ignore_groups'] . ")
                 ORDER BY timeonline DESC 
                 LIMIT {$tpl['limit']}";
         $result = $db->query($sql);

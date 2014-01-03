@@ -38,7 +38,7 @@ class topStatsActivator
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
             <tr><td class="thead" colspan="1"><strong>{$lang->topStats_LastThreads}</strong></td></tr>
             {$tpl[\'row\']}
-            </table>
+            </table><br />
             '),
             "sid" => "-1",
             "version" => "1.0",
@@ -68,7 +68,7 @@ class topStatsActivator
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
             <tr>
             <td class="thead" colspan="1"><strong>{$lang->topStats_MostViews}</strong></td>
-            </tr>{$tpl[\'row\']}</table>
+            </tr>{$tpl[\'row\']}</table><br />
             '),
             "sid" => "-1",
             "version" => "1.0",
@@ -98,7 +98,7 @@ class topStatsActivator
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
             <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {$tpl[\'limit\']} {$lang->topStats_Posters}</strong></td></tr>
-            {$tpl[\'row\']}</table>
+            {$tpl[\'row\']}</table><br />
             '),
             "sid" => "-1",
             "version" => "1.0",
@@ -127,7 +127,7 @@ class topStatsActivator
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
             <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {$tpl[\'limit\']} {$lang->topStats_Reputation}</strong></td></tr>
-            {$tpl[\'row\']}</table>     
+            {$tpl[\'row\']}</table><br />     
             '),
             "sid" => "-1",
             "version" => "1.0",
@@ -155,7 +155,7 @@ class topStatsActivator
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
             <tr><td class="thead" colspan="1"><strong>{$lang->topStats_Top} {$tpl[\'limit\']} {$lang->topStats_Online}</strong></td></tr>
-            {$tpl[\'row\']}</table>      		
+            {$tpl[\'row\']}</table><br />      		
             '),
             "sid" => "-1",
             "version" => "1.0",
@@ -182,7 +182,7 @@ class topStatsActivator
             "template" => $db->escape_string('
             <table border="0" cellspacing="1" cellpadding="4" class="tborder">
             <tr><td class="thead" colspan="1"><strong>{$tpl[\'limit\']} {$lang->topStats_NewestUsers}</strong></td></tr>
-            {$tpl[\'row\']}</table> 
+            {$tpl[\'row\']}</table><br /> 
             '),
             "sid" => "-1",
             "version" => "1.0",

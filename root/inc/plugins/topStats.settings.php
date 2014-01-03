@@ -70,6 +70,18 @@ class topStatsInstaller
         );
         $db->insert_query('settings', $setting);
 		
+		$setting = array(
+            'sid' => 'NULL',
+            'name' => 'topStats_IgnoreForums_LastThreads',
+            'title' => $db->escape_string($lang->topStats_IgnoreForums_LastThreads),
+            'description' =>  $db->escape_string($lang->topStats_IgnoreForums_LastThreadsDesc),
+            'optionscode' => 'text',
+            'value' => '',
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+		
         $setting = array(
             'sid' => 'NULL',
             'name' => 'topStats_Limit_LastThreads',
@@ -89,6 +101,18 @@ class topStatsInstaller
             'description' =>  $db->escape_string($lang->topStats_Status_MostViewsDesc),
             'optionscode' => 'onoff',
             'value' => '1',
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+		
+		$setting = array(
+            'sid' => 'NULL',
+            'name' => 'topStats_IgnoreForums_MostViews',
+            'title' => $db->escape_string($lang->topStats_IgnoreForums_MostViews),
+            'description' =>  $db->escape_string($lang->topStats_IgnoreForums_MostViewsDesc),
+            'optionscode' => 'text',
+            'value' => '',
             'disporder' => $disporder++,
             'gid' => $gid
         );
@@ -118,6 +142,18 @@ class topStatsInstaller
         );
         $db->insert_query('settings', $setting);
 		
+		$setting = array(
+            'sid' => 'NULL',
+            'name' => 'topStats_IgnoreGroups_Posters',
+            'title' => $db->escape_string($lang->topStats_IgnoreGroups_Posters),
+            'description' =>  $db->escape_string($lang->topStats_IgnoreGroups_PostersDesc),
+            'optionscode' => 'text',
+            'value' => '',
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+		
         $setting = array(
             'sid' => 'NULL',
             'name' => 'topStats_Limit_Posters',
@@ -130,7 +166,6 @@ class topStatsInstaller
         );
         $db->insert_query('settings', $setting);
     
-    	
 		$setting = array(
             'sid' => 'NULL',
             'name' => 'topStats_Status_Reputation',
@@ -138,6 +173,18 @@ class topStatsInstaller
             'description' =>  $db->escape_string($lang->topStats_Status_ReputationDesc),
             'optionscode' => 'onoff',
             'value' => '1',
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+		
+		$setting = array(
+            'sid' => 'NULL',
+            'name' => 'topStats_IgnoreGroups_Reputation',
+            'title' => $db->escape_string($lang->topStats_IgnoreGroups_Reputation),
+            'description' =>  $db->escape_string($lang->topStats_IgnoreGroups_ReputationDesc),
+            'optionscode' => 'text',
+            'value' => '',
             'disporder' => $disporder++,
             'gid' => $gid
         );
@@ -167,6 +214,18 @@ class topStatsInstaller
         );
         $db->insert_query('settings', $setting);
 		
+		$setting = array(
+            'sid' => 'NULL',
+            'name' => 'topStats_IgnoreGroups_Timeonline',
+            'title' => $db->escape_string($lang->topStats_IgnoreGroups_Timeonline),
+            'description' =>  $db->escape_string($lang->topStats_IgnoreGroups_TimeonlineDesc),
+            'optionscode' => 'text',
+            'value' => '',
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+		
         $setting = array(
             'sid' => 'NULL',
             'name' => 'topStats_Limit_Timeonline',
@@ -186,6 +245,18 @@ class topStatsInstaller
             'description' =>  $db->escape_string($lang->topStats_Status_NewestUsersDesc),
             'optionscode' => 'onoff',
             'value' => '1',
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+		
+		$setting = array(
+            'sid' => 'NULL',
+            'name' => 'topStats_IgnoreGroups_NewestUsers',
+            'title' => $db->escape_string($lang->topStats_IgnoreGroups_NewestUsers),
+            'description' =>  $db->escape_string($lang->topStats_IgnoreGroups_NewestUsersDesc),
+            'optionscode' => 'text',
+            'value' => '',
             'disporder' => $disporder++,
             'gid' => $gid
         );

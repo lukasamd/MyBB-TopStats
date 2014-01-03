@@ -35,31 +35,43 @@ $l['topStats_Status_AllDesc'] = "Ta opcja pozwala na globalne wyłączenie wszys
 
 $l['topStats_Status_LastThreads'] = "Najnowsze tematy";
 $l['topStats_Status_LastThreadsDesc'] = "Wyświetlanie widgetu z najnowszymi tematami.";
+$l['topStats_IgnoreForums_LastThreads'] = "Ignorowane fora dla najnowszych tematów";
+$l['topStats_IgnoreForums_LastThreadsDesc'] = "Wpisz FID for które nie mają być brane pod uwage, jeśli więcej niż jedno oddziel przecinkami. Tematy z tych for nie będą wyświetlane.";
 $l['topStats_Limit_LastThreads'] = "Limit najnowszych tematów";
 $l['topStats_Limit_LastThreadsDesc'] = "";
 
 $l['topStats_Status_MostViews'] = "Najczęściej wyświetlane tematy";
 $l['topStats_Status_MostViewsDesc'] = "Wyświetlanie widgetu z najczęściej wyświetlanymi tematami.";
+$l['topStats_IgnoreForums_MostViews'] = "Ignorowane fora dla najczęśćiej wyświetlanych tematów";
+$l['topStats_IgnoreForums_MostViewsDesc'] = "Wpisz FID for które nie mają być brane pod uwage, jeśli więcej niż jedno oddziel przecinkami. Tematy z tych for nie będą wyświetlane.";
 $l['topStats_Limit_MostViews'] = "Limit najczęśćiej wyświetlanych tematów";
 $l['topStats_Limit_MostViewsDesc'] = "";
  
 $l['topStats_Status_Posters'] = "Użytkownicy z największą ilością postów";
 $l['topStats_Status_PostersDesc'] = "Wyświetlanie widgetu z listą użytkowników o największej ilości napisanych postów.";
+$l['topStats_IgnoreGroups_Posters'] = "Ignorowane grupy dla użytkowników (posty)";
+$l['topStats_IgnoreGroups_PostersDesc'] = "Wpisz GID grup które nie mają być brane pod uwage, jeśli więcej niż jedno oddziel przecinkami. Użytkownicy z tych grup nie będą wyświetlani.";
 $l['topStats_Limit_Posters'] = "Limit użytkowników (posty)";
 $l['topStats_Limit_PostersDesc'] = "";
 
 $l['topStats_Status_Reputation'] = "Użytkownicy z największą reputacją";
 $l['topStats_Status_ReputationDesc'] = "Wyświetlanie widgetu z listą użytkowników o największej reputacji.";
+$l['topStats_IgnoreGroups_Reputation'] = "Ignorowane grupy dla użytkowników (reputacja)";
+$l['topStats_IgnoreGroups_ReputationDesc'] = "Wpisz GID grup które nie mają być brane pod uwage, jeśli więcej niż jedno oddziel przecinkami. Użytkownicy z tych grup nie będą wyświetlani.";
 $l['topStats_Limit_Reputation'] = "Limit użytkowników (reputacja)";
 $l['topStats_Limit_ReputationDesc'] = "";
 
 $l['topStats_Status_Timeonline'] = "Użytkownicy będący najdłużej online";
 $l['topStats_Status_TimeonlineDesc'] = "Wyświetlanie widgetu z listą użytkowników będących najdłużej online.";
+$l['topStats_IgnoreGroups_Timeonline'] = "Ignorowane grupy dla użytkowników (online)";
+$l['topStats_IgnoreGroups_TimeonlineDesc'] = "Wpisz GID grup które nie mają być brane pod uwage, jeśli więcej niż jedno oddziel przecinkami. Użytkownicy z tych grup nie będą wyświetlani.";
 $l['topStats_Limit_Timeonline'] = "Limit użytkowników (online)";
 $l['topStats_Limit_TimeonlineDesc'] = "";
 
 $l['topStats_Status_NewestUsers'] = "Najnowsi użytkownicy";
 $l['topStats_Status_NewestUsersDesc'] = "Wyświetlanie widgetu z listą najnowszych użytkowników.";
+$l['topStats_IgnoreGroups_NewestUsers'] = "Ignorowane grupy dla użytkowników (najnowsi)";
+$l['topStats_IgnoreGroups_NewestUsersDesc'] = "Wpisz GID grup które nie mają być brane pod uwage, jeśli więcej niż jedno oddziel przecinkami. Użytkownicy z tych grup nie będą wyświetlani.";
 $l['topStats_Limit_NewestUsers'] = "Limit użytkowników (najnowsi)";
 $l['topStats_Limit_NewestUsersDesc'] = "";
 

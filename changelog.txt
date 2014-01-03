@@ -1,3 +1,7 @@
+Version 2.1
+    * Add ignore options      
+
+
 Version 2.0
     * Rewrite code
     * Add polish lang        
