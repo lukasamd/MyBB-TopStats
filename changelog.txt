@@ -1,3 +1,13 @@
+Version 1.0.1
+    * Add codename to plugin info array
+	* Add last active threads
+	
+
+Version 1.0.0
+    * Add compatibility whit MYBB 1.8
+	* Add top referrals
+	
+
 Version 2.1
     * Add ignore options      
 

@@ -24,11 +24,14 @@
  */
 if (!defined("IN_MYBB")) exit;
 
+$l['topStats_LastPosts'] = "Najnowsze posty";
 $l['topStats_LastThreads'] = "Najnowsze tematy";
+$l['topStats_LastActiveThreads'] = "Ostatnio aktywne tematy";
 $l['topStats_MostViews'] = "Najwięcej wyświetlane";
 $l['topStats_Top'] = "Top";
 $l['topStats_Posters'] = "piszących";
 $l['topStats_Reputation'] = "reputacji";
+$l['topStats_Referrals'] = "polecających";
 $l['topStats_Online'] = "czasu online";
 $l['topStats_OnlineTime'] = "Czas online";    
 $l['topStats_NewestUsers'] = "ostatnio zarejestrowanych";   

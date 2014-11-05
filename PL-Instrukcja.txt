@@ -36,9 +36,12 @@ INSTALACJA:
 
 4. Dodaj do panelu bocznego (w szablonie index) wymagane zmienne dla poszczególnych modułów:
 
+{$topStats['LastPosts']} - ostatnie posty
 {$topStats['LastThreads']} - ostatnie tematy
+{$topStats['LastActiveThreads']} - ostatnio aktywne tematy
 {$topStats['MostViews']} - najczęściej wyświetlane tematy
 {$topStats['Posters']} - użytkownicy z największą ilością tematów
 {$topStats['Reputation']} - użytkownicy z największą reputacją
+{$topStats['Referrals']} - użytkownicy z największą ilością poleconych
 {$topStats['Timeonline']} - użytkownicy z najdłuższym czasem online
 {$topStats['NewestUsers']} - najnowsi użytkownicy

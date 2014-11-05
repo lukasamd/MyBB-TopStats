@@ -40,6 +40,20 @@ $l['topStats_IgnoreForums_LastThreadsDesc'] = "Wpisz FID for które nie mają by
 $l['topStats_Limit_LastThreads'] = "Limit najnowszych tematów";
 $l['topStats_Limit_LastThreadsDesc'] = "";
 
+$l['topStats_Status_LastPosts'] = "Najnowsze posty";
+$l['topStats_Status_LastPostsDesc'] = "Wyświetlanie widgetu z najnowszymi postami.";
+$l['topStats_IgnoreForums_LastPosts'] = "Ignorowane fora dla najnowszych postów";
+$l['topStats_IgnoreForums_LastPostsDesc'] = "Wpisz FID for które nie mają być brane pod uwage, jeśli więcej niż jedno oddziel przecinkami. Tematy z tych for nie będą wyświetlane.";
+$l['topStats_Limit_LastPosts'] = "Limit najnowszych postów";
+$l['topStats_Limit_LastPostsDesc'] = "";
+
+$l['topStats_Status_LastActiveThreads'] = "Ostatnio aktywne tematy";
+$l['topStats_Status_LastActiveThreadsDesc'] = "Wyświetlanie widgetu z ostatnio aktywnymi tematami.";
+$l['topStats_IgnoreForums_LastActiveThreads'] = "Ignorowane fora dla ostatnio aktywnych tematów";
+$l['topStats_IgnoreForums_LastActiveThreadsDesc'] = "Wpisz FID for które nie mają być brane pod uwage, jeśli więcej niż jedno oddziel przecinkami. Tematy z tych for nie będą wyświetlane.";
+$l['topStats_Limit_LastActiveThreads'] = "Limit ostatnio aktywnych tematów";
+$l['topStats_Limit_LastActiveThreadsDesc'] = "";
+
 $l['topStats_Status_MostViews'] = "Najczęściej wyświetlane tematy";
 $l['topStats_Status_MostViewsDesc'] = "Wyświetlanie widgetu z najczęściej wyświetlanymi tematami.";
 $l['topStats_IgnoreForums_MostViews'] = "Ignorowane fora dla najczęśćiej wyświetlanych tematów";
@@ -61,6 +75,13 @@ $l['topStats_IgnoreGroups_ReputationDesc'] = "Wpisz GID grup które nie mają by
 $l['topStats_Limit_Reputation'] = "Limit użytkowników (reputacja)";
 $l['topStats_Limit_ReputationDesc'] = "";
 
+$l['topStats_Status_Referrals'] = "Użytkownicy z największą ilością poleceń";
+$l['topStats_Status_ReferralsDesc'] = "Wyświetlanie widgetu z listą użytkowników o największej ilości poleconych użytkowników.";
+$l['topStats_IgnoreGroups_Referrals'] = "Ignorowane grupy dla użytkowników (polecający)";
+$l['topStats_IgnoreGroups_ReferralsDesc'] = "Wpisz GID grup które nie mają być brane pod uwage, jeśli więcej niż jedno oddziel przecinkami. Użytkownicy z tych grup nie będą wyświetlani.";
+$l['topStats_Limit_Referrals'] = "Limit użytkowników (polecający)";
+$l['topStats_Limit_ReferralsDesc'] = "";
+
 $l['topStats_Status_Timeonline'] = "Użytkownicy będący najdłużej online";
 $l['topStats_Status_TimeonlineDesc'] = "Wyświetlanie widgetu z listą użytkowników będących najdłużej online.";
 $l['topStats_IgnoreGroups_Timeonline'] = "Ignorowane grupy dla użytkowników (online)";
@@ -78,5 +99,5 @@ $l['topStats_Limit_NewestUsersDesc'] = "";
 $l['topStats_Status_Avatar'] = "Wyświetlanie awatarów";
 $l['topStats_Status_AvatarDesc'] = "Wyświetlanie awatarów użytowników i autorów tematów w  statystykach.";
 
-$l['topStats_AvatarWidth'] = "Szerokość avatara";
-$l['topStats_AvatarWidthDesc'] = "Ustaw szerokość avatara. Wysokość avatara będzie taka sama jak jego szerokość.";
+$l['topStats_AvatarWidth'] = "Szerokość i wysokość avatara";
+$l['topStats_AvatarWidthDesc'] = "Ustaw szerokość i wysokość awatara np.: 32x32.";
