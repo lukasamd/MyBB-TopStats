@@ -32,7 +32,7 @@ class topStatsActivator
 		global $db;
    
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_LastThreads',
             "template" => $db->escape_string('
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
@@ -46,7 +46,7 @@ class topStatsActivator
         );
 		
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_LastThreadsRow',
             "template" => $db->escape_string('
             <tr><td class="trow1">
@@ -61,7 +61,7 @@ class topStatsActivator
         );
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_LastThreadsAvatar',
             "template" => $db->escape_string('
             <img src="{$useravatar[\'image\']}" alt="" style="float: left;margin-right: 5px;" {$useravatar[\'width_height\']}/>
@@ -72,7 +72,7 @@ class topStatsActivator
         );
         
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_LastPosts',
             "template" => $db->escape_string('
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
@@ -86,7 +86,7 @@ class topStatsActivator
         );
 		
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_LastPostsRow',
             "template" => $db->escape_string('
             <tr><td class="trow1">
@@ -101,7 +101,7 @@ class topStatsActivator
         );
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_LastPostsAvatar',
             "template" => $db->escape_string('
             <img src="{$useravatar[\'image\']}" alt="" style="float: left;margin-right: 5px;" {$useravatar[\'width_height\']}/>
@@ -113,7 +113,7 @@ class topStatsActivator
 		
 		
 		        self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_LastActiveThreads',
             "template" => $db->escape_string('
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
@@ -127,7 +127,7 @@ class topStatsActivator
         );
 		
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_LastActiveThreadsRow',
             "template" => $db->escape_string('
             <tr><td class="trow1">
@@ -142,7 +142,7 @@ class topStatsActivator
         );
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_LastActiveThreadsAvatar',
             "template" => $db->escape_string('
             <img src="{$useravatar[\'image\']}" alt="" style="float: left;margin-right: 5px;" {$useravatar[\'width_height\']}/>
@@ -153,7 +153,7 @@ class topStatsActivator
         );
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_MostViews',
             "template" => $db->escape_string('
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
@@ -166,7 +166,7 @@ class topStatsActivator
         );
 		
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_MostViewsRow',
             "template" => $db->escape_string('
             <tr><td class="trow1">
@@ -182,7 +182,7 @@ class topStatsActivator
         );
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_MostViewsAvatar',
             "template" => $db->escape_string('
             <img src="{$useravatar[\'image\']}" alt="" style="float: left;margin-right: 5px;" {$useravatar[\'width_height\']}/>
@@ -194,7 +194,7 @@ class topStatsActivator
 		
 		
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_Posters',
             "template" => $db->escape_string('
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
@@ -207,7 +207,7 @@ class topStatsActivator
         );
 		
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_PostersRow',
             "template" => $db->escape_string('
             <tr><td class="trow1">
@@ -222,7 +222,7 @@ class topStatsActivator
         );
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_PostersAvatar',
             "template" => $db->escape_string('
             <img src="{$useravatar[\'image\']}" alt="" style="float: left;margin-right: 5px;" {$useravatar[\'width_height\']}/>
@@ -234,7 +234,7 @@ class topStatsActivator
 		
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_Reputation',
             "template" => $db->escape_string('
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
@@ -247,7 +247,7 @@ class topStatsActivator
         );
 		
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_ReputationRow',
             "template" => $db->escape_string('
             <tr><td class="trow1">
@@ -262,7 +262,7 @@ class topStatsActivator
         );
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_ReputationAvatar',
             "template" => $db->escape_string('
             <img src="{$useravatar[\'image\']}" alt="" style="float: left;margin-right: 5px;" {$useravatar[\'width_height\']}/>
@@ -274,7 +274,7 @@ class topStatsActivator
 		
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_Referrals',
             "template" => $db->escape_string('
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
@@ -287,7 +287,7 @@ class topStatsActivator
         );
 		
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_ReferralsRow',
             "template" => $db->escape_string('
             <tr><td class="trow1">
@@ -302,7 +302,7 @@ class topStatsActivator
         );
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_ReferralsAvatar',
             "template" => $db->escape_string('
             <img src="{$useravatar[\'image\']}" alt="" style="float: left;margin-right: 5px;" {$useravatar[\'width_height\']}/>
@@ -314,7 +314,7 @@ class topStatsActivator
 		
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_Timeonline',
             "template" => $db->escape_string('
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
@@ -327,7 +327,7 @@ class topStatsActivator
         );
 		
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_TimeonlineRow',
             "template" => $db->escape_string('
             <td class="trow1">
@@ -341,7 +341,7 @@ class topStatsActivator
         );
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_TimeonlineAvatar',
             "template" => $db->escape_string('
             <img src="{$useravatar[\'image\']}" alt="" style="float: left;margin-right: 5px;" {$useravatar[\'width_height\']}/>
@@ -353,7 +353,7 @@ class topStatsActivator
 		
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_NewestUsers',
             "template" => $db->escape_string('
             <table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
@@ -366,7 +366,7 @@ class topStatsActivator
         );
 		
         self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_NewestUsersRow',
             "template" => $db->escape_string('
             <tr><td class="trow1">
@@ -380,7 +380,7 @@ class topStatsActivator
         );
 		
 		self::$tpl[] = array(
-            "tid" => NULL,
+            "tid" => 0,
             "title" => 'topStats_NewestUsersAvatar',
             "template" => $db->escape_string('
             <img src="{$useravatar[\'image\']}" alt="" style="float: left;margin-right: 5px;" {$useravatar[\'width_height\']}/>

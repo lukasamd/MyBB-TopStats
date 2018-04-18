@@ -36,7 +36,7 @@ class topStatsInstaller
         $disporder = 1;
 
         $settings_group = array(
-            'gid' => 'NULL',
+            'gid' => 0,
             'name' => 'topStats',
             'title' => $db->escape_string($lang->topStats),
             'description' => $db->escape_string($lang->topStats_Desc),
@@ -47,7 +47,7 @@ class topStatsInstaller
         $gid = (int) $db->insert_id();
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_All',
             'title' => $db->escape_string($lang->topStats_Status_All),
             'description' => $db->escape_string($lang->topStats_Status_AllDesc),
@@ -59,7 +59,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_LastThreads',
             'title' => $db->escape_string($lang->topStats_Status_LastThreads),
             'description' =>  $db->escape_string($lang->topStats_Status_LastThreadsDesc),
@@ -71,7 +71,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_IgnoreForums_LastThreads',
             'title' => $db->escape_string($lang->topStats_IgnoreForums_LastThreads),
             'description' =>  $db->escape_string($lang->topStats_IgnoreForums_LastThreadsDesc),
@@ -83,7 +83,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Limit_LastThreads',
             'title' => $db->escape_string($lang->topStats_Limit_LastThreads),
             'description' =>  $db->escape_string($lang->topStats_Limit_LastThreadsDesc),
@@ -95,7 +95,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
         
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_LastPosts',
             'title' => $db->escape_string($lang->topStats_Status_LastPosts),
             'description' =>  $db->escape_string($lang->topStats_Status_LastPostsDesc),
@@ -107,7 +107,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_IgnoreForums_LastPosts',
             'title' => $db->escape_string($lang->topStats_IgnoreForums_LastPosts),
             'description' =>  $db->escape_string($lang->topStats_IgnoreForums_LastPostsDesc),
@@ -119,7 +119,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Limit_LastPosts',
             'title' => $db->escape_string($lang->topStats_Limit_LastPosts),
             'description' =>  $db->escape_string($lang->topStats_Limit_LastPostsDesc),
@@ -131,7 +131,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 				
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_LastActiveThreads',
             'title' => $db->escape_string($lang->topStats_Status_LastActiveThreads),
             'description' =>  $db->escape_string($lang->topStats_Status_LastActiveThreadsDesc),
@@ -143,7 +143,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_IgnoreForums_LastActiveThreads',
             'title' => $db->escape_string($lang->topStats_IgnoreForums_LastActiveThreads),
             'description' =>  $db->escape_string($lang->topStats_IgnoreForums_LastActiveThreadsDesc),
@@ -155,7 +155,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Limit_LastActiveThreads',
             'title' => $db->escape_string($lang->topStats_Limit_LastActiveThreads),
             'description' =>  $db->escape_string($lang->topStats_Limit_LastActiveThreadsDesc),
@@ -168,7 +168,7 @@ class topStatsInstaller
 		
  
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_MostViews',
             'title' => $db->escape_string($lang->topStats_Status_MostViews),
             'description' =>  $db->escape_string($lang->topStats_Status_MostViewsDesc),
@@ -180,7 +180,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_IgnoreForums_MostViews',
             'title' => $db->escape_string($lang->topStats_IgnoreForums_MostViews),
             'description' =>  $db->escape_string($lang->topStats_IgnoreForums_MostViewsDesc),
@@ -192,7 +192,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Limit_MostViews',
             'title' => $db->escape_string($lang->topStats_Limit_MostViews),
             'description' =>  $db->escape_string($lang->topStats_Limit_MostViewsDesc),
@@ -204,7 +204,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
         
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_Posters',
             'title' => $db->escape_string($lang->topStats_Status_Posters),
             'description' =>  $db->escape_string($lang->topStats_Status_PostersDesc),
@@ -216,7 +216,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_IgnoreGroups_Posters',
             'title' => $db->escape_string($lang->topStats_IgnoreGroups_Posters),
             'description' =>  $db->escape_string($lang->topStats_IgnoreGroups_PostersDesc),
@@ -228,7 +228,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Limit_Posters',
             'title' => $db->escape_string($lang->topStats_Limit_Posters),
             'description' =>  $db->escape_string($lang->topStats_Limit_PostersDesc),
@@ -240,7 +240,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
     
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_Reputation',
             'title' => $db->escape_string($lang->topStats_Status_Reputation),
             'description' =>  $db->escape_string($lang->topStats_Status_ReputationDesc),
@@ -252,7 +252,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_IgnoreGroups_Reputation',
             'title' => $db->escape_string($lang->topStats_IgnoreGroups_Reputation),
             'description' =>  $db->escape_string($lang->topStats_IgnoreGroups_ReputationDesc),
@@ -264,7 +264,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Limit_Reputation',
             'title' => $db->escape_string($lang->topStats_Limit_Reputation),
             'description' =>  $db->escape_string($lang->topStats_Limit_ReputationDesc),
@@ -276,7 +276,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_Referrals',
             'title' => $db->escape_string($lang->topStats_Status_Referrals),
             'description' =>  $db->escape_string($lang->topStats_Status_ReferralsDesc),
@@ -288,7 +288,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_IgnoreGroups_Referrals',
             'title' => $db->escape_string($lang->topStats_IgnoreGroups_Referrals),
             'description' =>  $db->escape_string($lang->topStats_IgnoreGroups_ReferralsDesc),
@@ -300,7 +300,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Limit_Referrals',
             'title' => $db->escape_string($lang->topStats_Limit_Referrals),
             'description' =>  $db->escape_string($lang->topStats_Limit_ReferralsDesc),
@@ -312,7 +312,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
         
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_Timeonline',
             'title' => $db->escape_string($lang->topStats_Status_Timeonline),
             'description' =>  $db->escape_string($lang->topStats_Status_TimeonlineDesc),
@@ -324,7 +324,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_IgnoreGroups_Timeonline',
             'title' => $db->escape_string($lang->topStats_IgnoreGroups_Timeonline),
             'description' =>  $db->escape_string($lang->topStats_IgnoreGroups_TimeonlineDesc),
@@ -336,7 +336,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Limit_Timeonline',
             'title' => $db->escape_string($lang->topStats_Limit_Timeonline),
             'description' =>  $db->escape_string($lang->topStats_Limit_TimeonlineDesc),
@@ -348,7 +348,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
         
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_NewestUsers',
             'title' => $db->escape_string($lang->topStats_Status_NewestUsers),
             'description' =>  $db->escape_string($lang->topStats_Status_NewestUsersDesc),
@@ -360,7 +360,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
 		$setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_IgnoreGroups_NewestUsers',
             'title' => $db->escape_string($lang->topStats_IgnoreGroups_NewestUsers),
             'description' =>  $db->escape_string($lang->topStats_IgnoreGroups_NewestUsersDesc),
@@ -372,7 +372,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
 		
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Limit_NewestUsers',
             'title' => $db->escape_string($lang->topStats_Limit_NewestUsers),
             'description' =>  $db->escape_string($lang->topStats_Limit_NewestUsersDesc),
@@ -384,7 +384,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
         
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_Status_Avatar',
             'title' =>  $db->escape_string($lang->topStats_Status_Avatar),
             'description' =>   $db->escape_string($lang->topStats_Status_AvatarDesc),
@@ -396,7 +396,7 @@ class topStatsInstaller
         $db->insert_query('settings', $setting);
         
         $setting = array(
-            'sid' => 'NULL',
+            'sid' => 0,
             'name' => 'topStats_AvatarWidth',
             'title' =>  $db->escape_string($lang->topStats_AvatarWidth),
             'description' =>  $db->escape_string($lang->topStats_AvatarWidthDesc),
